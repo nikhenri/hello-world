@@ -6,17 +6,41 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
+    /*text-shadow: 1px 1px 3px rgb(0, 0, 0);*/
+    text-shadow: 1px 1px 3px rgb(0, 0, 0), -1px -1px 3px rgb(0, 0, 0);
+    color:white;
+    font-family: Bradley Hand, cursive;
+    /* font-weight: 900; */
+
 }
 /***********************************************************************/
-h1 { /* remove annoying merging */
-    margin: 0;
-    padding: 0;
+p {
+    position: relative; /* if remove, inherit opacity from #top::before */
 }
 /***********************************************************************/
 #top {
     /* border: 10px solid red; */ /* DEBUG */
     min-height: 100vh;
     background-color: rgb(255, 115, 80);
+}
+/***********************************************************************/
+#Header {
+    position: relative; /* if remove, inherit opacity from #top::before */
+    font-size: 42px;
+    padding: 10px
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+#Header h1 {
+    margin:0px;
+}
+#Header img{
+    margin-right: 10px;
+    border: 3px solid rgb(255, 208, 0, .5);
+    border-radius: 50%;
+    width: 60px;
 }
 /***********************************************************************/
 /* avoid the opacity to be transfered to child */
@@ -27,7 +51,7 @@ h1 { /* remove annoying merging */
     top: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.5;
+    opacity: 0.4;
     background-image: url("Blood-Rage-Board-Game-Cover.jpg");
     background-size: cover; 
 }

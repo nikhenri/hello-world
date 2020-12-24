@@ -1,6 +1,6 @@
 console.log("Hello u fuck");
 
-text_list = ['op', 'broken', 'need nerf', 'unbalanced']
+text_list = ['op', 'op', 'broken', 'need nerf', 'unbalanced']
 
 // random int
 function getRandomInt(max) {
