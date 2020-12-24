@@ -1,64 +1,66 @@
+
 body {
-    border: 10px solid rgb(43, 255, 0);
+    /* border: 10px solid rgb(43, 255, 0); */ /*DEBUG*/
+
+    /* remove annoying merging */
     margin: 0;
     padding: 0;
-
-    /* text-align: center; */
-
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    align-items: center;
+    text-align: center;
 }
-
+/***********************************************************************/
+h1 { /* remove annoying merging */
+    margin: 0;
+    padding: 0;
+}
+/***********************************************************************/
 #top {
-    border: 10px solid red;
-    /* opacity: 0.5; */
-    /* background-image: url("Blood-Rage-Board-Game-Cover.jpg"); */
-    /* background-repeat: no-repeat;
-    background-size: cover; */
-    /* width: 100%; */
-    /* height: 100%; */
-    /*min-height: 100vh;
-    background-color: coral;
-
-    text-align: center;*/
-    /* display: flex; 
-    flex-direction: column;
-    justify-content: center; 
-    align-items: center;*/
+    /* border: 10px solid red; */ /* DEBUG */
+    min-height: 100vh;
+    background-color: rgb(255, 115, 80);
 }
-
+/***********************************************************************/
+/* avoid the opacity to be transfered to child */
+#top::before {
+    position: absolute;
+    content: ' ';
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    background-image: url("Blood-Rage-Board-Game-Cover.jpg");
+    background-size: cover; 
+}
+/***********************************************************************/
 #imgContainer {
-    border: 10px solid rgb(255, 0, 212);
+    /* border: 10px solid rgb(255, 0, 212); */ 
+    position: relative; /* if remove, inherit opacity from #top::before */
+    
+    /* flex in colum, center and wrap if neede */
     display: flex; /* need to enable flex-direction, align-items, justify-content */
-    flex-direction: row; /* default is row */
+    justify-content: center; 
+    flex-wrap: wrap;
 }
-
+/***********************************************************************/
 .imgDiv {
-    /* height: 500px; */
-    /* width: 500px; */
-    /* width: 100%; */
-    background-color: blue;
-    /* opacity: 1;
+    /* bg, border, shadow */
+    margin: 15px;
+    background-color: rgb(128, 0, 0);
+    border: 7px solid rgb(0, 0, 0);
+    border-radius: 5% 5%;
+    box-shadow: 8px 8px rgba(0, 0, 0, .33);
+
+    /* text effect */
     text-transform: uppercase;
     font-weight: bold;
-    color: red; */
+    color: red;
+
+    /* Flex, center */
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    /*width: 200px;
-    height: 225px;*/
-    border: 10px solid blueviolet;
-
 }
-
-/* .imgCard {
-    width: 100%;
-        height: 100%;
-} */
+/***********************************************************************/
 
 
 
