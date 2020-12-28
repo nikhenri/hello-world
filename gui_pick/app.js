@@ -14,18 +14,24 @@ for (imgCard of document.querySelectorAll('.imgDiv')){
 
 }
 
+
+console.log(files)
+
 function event_click_on_card (event) {
   
-  height = window.getComputedStyle(this).getPropertyValue("height");
-  width = window.getComputedStyle(this).getPropertyValue("width");
+  
 
   console.dir(this)
   console.log(event);
 
-  event.target.remove();
-  p = document.createElement('p');
-  p.innerText = text_list[getRandomInt(text_list.length)]
-  this.appendChild(p);
-  this.style.height = height
-  this.style.width = width
+  if (event.target.nodeName === 'IMG') {
+    height = window.getComputedStyle(this).getPropertyValue("height");
+    width = window.getComputedStyle(this).getPropertyValue("width");
+    event.target.remove();
+    p = document.createElement('p');
+    p.innerText = text_list[getRandomInt(text_list.length)]
+    this.appendChild(p);
+    this.style.height = height
+    this.style.width = width
+  }
 }
