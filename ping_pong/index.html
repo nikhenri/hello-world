@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ping Pong</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <div class="d-flex flex-column justify-content-center align-items-center">
+    <div id="main" class="border rounded p-1">
+      <h1 class="text-primary">Ping pong counter</h1>
+      <img src="https://images.unsplash.com/photo-1534158914592-062992fbe900?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3784&q=80" alt="">
+      
+      <h3><span id="p1ScoreText">0</span> to <span id="p2ScoreText">0</span></h3>
+
+      <p id="score">Use the button for score</p>
+      <div class="dropdown">Playing to
+        <button id="myDropdown" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          7
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">7</a>
+          <a class="dropdown-item" href="#">6</a>
+          <a class="dropdown-item" href="#">5</a>
+          <a class="dropdown-item" href="#">4</a>
+        </div>
+      </div>
+      <div class="d-flex mt-2"> 
+
+        <button type="button" id="btP1" class="flex-fill btn btn-primary">+1 P1</button>
+        <button type="button" id="btP2" class="flex-fill btn btn-success">+1 P2</button>    
+        <button type="button" id="btReset" class="flex-fill btn btn-danger">Reset</button>
+
+      </div>
+      <div id="alart"></div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+  <script src="app.js"></script>
+  
+</body>
+</html>
