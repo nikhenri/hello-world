@@ -76,8 +76,8 @@ p {
     background-color: rgb(128, 0, 0);
 
     /* bg, border, shadow */
-    width: 150px;
-    height: 230px;
+    height: 200px;
+    width: 130px;
     margin: 15px;
     
     /* border */
@@ -95,7 +95,20 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    /* transition */
+    transition-property: border-color width height margin;
+    /* transition-property: border-color width height margin; */
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+}
+
+/***********************************************************************/
+.imgDiv:hover {
+    /* margin: 7px;
+    width: 140px;
+    height: 215px; */
+    border-color: #f1ff5c;
+    cursor: pointer;
 }
 /***********************************************************************/
-
-
