@@ -36,6 +36,7 @@ p {
 #Header h1 {
     margin:0px;
 }
+
 #Header img{
     margin-right: 10px;
     border: 3px solid rgb(255, 208, 0, .5);
@@ -57,9 +58,8 @@ p {
 }
 /***********************************************************************/
 #imgContainer {
-    /* border: 10px solid rgb(255, 0, 212); */ 
+    /* border: 10px solid rgb(255, 0, 212); */
     position: relative; /* if remove, inherit opacity from #top::before */
-    
     /* flex in colum, center and wrap if neede */
     display: flex; /* need to enable flex-direction, align-items, justify-content */
     justify-content: center; 
@@ -67,9 +67,20 @@ p {
 }
 /***********************************************************************/
 .imgDiv {
-    /* bg, border, shadow */
-    margin: 15px;
+    position: relative; /* if remove, inherit opacity from #top::before */
+
+    /* bg image cfg */
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat; 
     background-color: rgb(128, 0, 0);
+
+    /* bg, border, shadow */
+    width: 150px;
+    height: 230px;
+    margin: 15px;
+    
+    /* border */
     border: 7px solid rgb(0, 0, 0);
     border-radius: 5% 5%;
     box-shadow: 8px 8px rgba(0, 0, 0, .33);
@@ -78,6 +89,7 @@ p {
     text-transform: uppercase;
     font-weight: bold;
     color: red;
+    user-select:none;
 
     /* Flex, center */
     display: flex;
@@ -85,6 +97,5 @@ p {
     align-items: center;
 }
 /***********************************************************************/
-
 
 

@@ -1,37 +1,46 @@
-console.log("Hello u fuck");
-
+cardImg = ["a3_battle_heimdall_gaze.jpg",
+           "a3_battle_heimdall_watch.jpg",
+           "a3_battle_loki_poison.jpg",
+           "a3_battle_oom_judgment.jpg",
+           "a3_battle_thor_ascension.jpg",
+           "a3_battle_thor_primacy.jpg",
+           "a3_battle_tyr_judgment.jpg",
+           "a3_battle_tyr_rage.jpg",
+           "a3_monster_soldier_of_hel.jpg",
+           "a3_monster_volur_witch.jpg",
+           "a3_upgrade_eternal_dragons.jpg",
+           "a3_upgrade_loki_wrath.jpg",
+           "a3_upgrade_tyr_wrath.jpg",
+          ];
 text_list = ['op', 'op', 'broken', 'need nerf', 'unbalanced']
 
-// random int
+drawAllCard();
+
+// ------------------------------------------------------------------------
+function drawAllCard() {
+  imgContainer = document.querySelector('#imgContainer');
+  for (item of cardImg) {
+    div = document.createElement('div')
+    div.classList.add('imgDiv');
+    div.classList.add('CardList');
+    div.style.backgroundImage = `url("${item}")`
+    div.addEventListener('click', event_click_on_card);
+    imgContainer.appendChild(div);
+  }
+}
+
+// ------------------------------------------------------------------------
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-// get item by ID
-for (imgCard of document.querySelectorAll('.imgDiv')){
-  console.log(imgCard);
-  imgCard.addEventListener('click', event_click_on_card);
-
-}
-
-
-console.log(files)
-
+// ------------------------------------------------------------------------
 function event_click_on_card (event) {
-  
-  
-
-  console.dir(this)
-  console.log(event);
-
-  if (event.target.nodeName === 'IMG') {
-    height = window.getComputedStyle(this).getPropertyValue("height");
-    width = window.getComputedStyle(this).getPropertyValue("width");
-    event.target.remove();
-    p = document.createElement('p');
-    p.innerText = text_list[getRandomInt(text_list.length)]
-    this.appendChild(p);
-    this.style.height = height
-    this.style.width = width
-  }
+  // console.dir(this)
+  // console.log(event);
+  event.target.style.backgroundImage = "";
+  event.target.innerText = text_list[getRandomInt(text_list.length)];
+  event.target.removeEventListener("click", event_click_on_card);
 }
+
+// ------------------------------------------------------------------------
