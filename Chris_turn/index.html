@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chris' turn calculator</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+</head>
+<body>
+  <div class="d-flex flex-column justify-content-center align-items-center">
+    <div id="main" class="border rounded p-1">
+      <h1 class="display-3 font-weight-bold ">Chris' turn calculator <i class="fas fa-hourglass-half"></i></h1>
+      <!-- <img src="https://images.unsplash.com/photo-1534158914592-062992fbe900?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3784&q=80" alt=""> -->
+      <iframe src="https://www.desmos.com/calculator/b3ddpzvdkg?embed" width="890px" height="250px" style="border: 1px solid #ccc" frameborder=0></iframe>
+      <!-- <h3><span id="p1ScoreText">0</span> to <span id="p2ScoreText">0</span></h3> -->
+      <div>
+        <p>A  <strong>Chris' turn</strong> (<strong>Ct</strong>) is a time unit based on Chris King's turn during a game of <em>Lords of Waterdeep</em>,
+          which took place on 19 Feb 2021. Ct time function is a horizontal asymptotes approaching 1 as x tends to +∞. Thus 0 >= Ct < 1 as it is impossible to reach 1Ct.</p>
+      </div>  
+      <hr>
+      <label for="name">Time in million of years:</label>
+      <input type="number" id="input" name="input">
+      <button type="button" class="btn btn-primary">Convert</button>
+
+      <h2><strong id="ct"></strong></span></h2> 
+      </div>
+    </div>
+    
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+
+  <script src="app.js"></script>
+  
+</body>
+</html>

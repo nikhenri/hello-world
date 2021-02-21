@@ -1,0 +1,25 @@
+body {
+    text-align: center;
+    background-image: url("./bg.jpg");
+}
+
+#main {
+    width: 930px;
+    background-color: rgba(39, 219, 243, 0.85);
+}
+
+p, label { 
+    text-align: left;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+input {
+    width: 150px;
+    height: 35px;
+}
+
+h1 {
+    text-shadow:  3px 3px 5px #ffffff;
+    letter-spacing: 4px;
+}
