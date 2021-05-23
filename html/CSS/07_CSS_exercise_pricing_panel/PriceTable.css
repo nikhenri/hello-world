@@ -1,0 +1,58 @@
+html {
+    font-family: 'Open Sans';
+}
+body  {
+    
+    background-color: #22A7F0; 
+    /* color: blue; */
+    /* min-width: 100vh; */ /* use the whole X */
+    /* min-height: 100vh; */ /* use the whole Y */
+
+    display: flex; /* need to enable flex-direction, align-items, justify-content */
+    flex-direction: row; /* default is row */
+    align-items: center; /* since in ROW, this is center Y */ 
+    justify-content: center; /* since in ROW, this is center X */
+}
+
+.card {
+    border-right: 1px solid gray;
+}  
+.card:last-child {
+    border-bottom: none;
+    border-right: none;
+}
+
+.allcard {
+    /* width: 100%; */
+    display: flex; /* This will put flex-direction row byt default */
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px 25px; /* Y X */ 
+
+    /* width: 100%;*/ /* use 100% of avaible space */
+    /* max-width: 960px;*/ /* to a max of 96px */
+    /* max-width: 100%;*/ /* use 100% */
+    text-align: center;
+    text-transform: uppercase;
+}
+
+h2 {
+    color: gray;
+    font-weight: 800; /* thickness */
+    letter-spacing: 1.5px;
+}
+
+/* for width <= val */ 
+@media (max-width: 1000px){
+    .allcard {
+        flex-direction: column;
+    }
+    .card {
+        border-right: none;
+        border-bottom: 1px solid gray;
+    } 
+}
+
+img {
+    margin-bottom: 10px;
+}

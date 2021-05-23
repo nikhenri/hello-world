@@ -1,0 +1,9 @@
+// create empty npm file
+npm init
+
+// install package, case sensative
+npm i express
+
+
+//
+node index.js

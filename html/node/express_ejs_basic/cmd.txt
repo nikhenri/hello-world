@@ -1,0 +1,12 @@
+# init package.json
+npm init
+
+# instal express
+npm i express
+
+# install ejs
+npm i ejs
+
+# run and auto restart server
+nodemon index.js
+

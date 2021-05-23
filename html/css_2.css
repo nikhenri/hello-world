@@ -1,0 +1,19 @@
+div {
+  
+  display: block;
+  /*position: relative;*/
+}
+
+div::after {
+  content: "";
+  background: url(https://cmon-files.s3.amazonaws.com/d8b1f116-a497-47f7-ac92-69695b91dbcb.jpg);;
+  background-repeat: no-repeat;
+  /*background-size: cover*/
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+ 
+}

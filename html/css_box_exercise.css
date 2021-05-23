@@ -1,0 +1,12 @@
+
+.card {
+  border: 1px solid grey;
+  border-radius: 5px;
+  width: 210px;
+  text-align: center;
+}
+img {
+  width: 200px;
+  border-radius: 50%;
+  border: 5px solid rgb(236, 183, 191);
+}

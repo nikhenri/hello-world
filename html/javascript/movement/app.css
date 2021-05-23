@@ -1,0 +1,34 @@
+section {
+    border: 5px solid blueviolet ;
+    height: 100%;
+    min-height: 100vh;
+    position: relative;
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+div {
+    height: 100px;
+    width: 100px;
+    background-color: turquoise;
+    border: 2px solid blueviolet;
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;
+    top: 0;
+} 
+
+.move {
+    transition-property: top left;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+    left: 2%;
+    top: 25%;
+}
+
+
+/* section div{
+    transition-timing-function:  cubic-bezier(0.85, 0, 0.15, 1);
+}   */
+
+

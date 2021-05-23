@@ -1,0 +1,11 @@
+// create empty npm file
+npm init
+
+// install package, case sensative
+npm i langs
+npm i franc
+
+//
+
+node index.js "I love shemale and dick and I love gay porn. Alose I love feet and hairy pits"
+node index.js "J'aime le sexe. J'aime les jolies pieds de femme et les très jeune fille"

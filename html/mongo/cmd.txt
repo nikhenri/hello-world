@@ -1,0 +1,42 @@
+# print all DB (empty db not show)
+show dbs
+
+# print the current database
+db
+
+# Create a db called animalShelter
+use animalShelter
+
+# show collection in the current db
+show collections
+
+# insert in a collection name XXX
+db.XXX.insertOne()
+db.dogs.insertOne({name: "Charlie", age: 3, catFriendly: true})
+db.dogs.insert([{name: "Charlie", age: 3, catFriendly: true}, {name: "Fucker", age: 7, catFriendly: false}])
+
+# print the stuff in a db of a collection
+db.XXX.find()
+# Find exact key
+db.dogs.find({age: 3})
+
+# Find one
+db.dogs.findOne({age: 3})
+
+# update a thing in collection
+# if doesnt exist add property
+db.dogs.updateOne({name: 'Chalie'}, {$set: {age:4}})
+db.dogs.updateOne({name: 'Chalie'}, {$set: {age:4, catFriendly: 'false'}})
+db.dogs.updateMany({catFriendly: 'true'}, {$set: {age:4, catFriendly: 'false'}})
+
+# add the current time to the key 'lastFucked'
+db.dogs.updateOne({name: 'Charlie'}, {$currentDate: {lastFucked: true}})
+
+# delete Charlie from db
+db.dogs.deleteOne({name: 'Charlie'})
+
+# delete everythin in collections dogs
+db.dogs.remove({})
+
+# age greater or equal then
+db.dogs.find({age: {$gte: 5}})

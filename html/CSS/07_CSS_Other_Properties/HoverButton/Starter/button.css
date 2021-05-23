@@ -1,0 +1,27 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  /* background-color: #20140d; */
+  background-image: radial-gradient(circle at top right, #4e2e1b, #20140d);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+button{
+  background-color:black;
+  color:white;
+  border-color: chocolate;
+  padding: 10px;
+  top: 50%;
+  transition: all 0.5s;
+
+}
+
+button:hover{
+  transform: translateY(-10%);
+  border-color: yellow;
+  box-shadow: 0 5px 10px 0 rgb(255, 166, 0, 0.4);
+  cursor: pointer;
+}  

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Comment</title>
+</head>
+<body>
+	<h1>I LOVE SHEMALE PORN </h1>
+	<p><%=id%></p>
+	<ul>
+		<% for(let c of comments) { %>
+			<li><b><%=c.usr%></b> : <%=c.comment%> <a href="comment/<%=c.usr%>">link</a></li>
+		<% } %>	
+	</ul>
+	<a href="/comment/new">add new stuff</a>
+	<p></p>
+	<form action="/comment/new">
+		<button>add new stuff</button>
+	</form>
+
+	<p></p>
+	<form id="new" action = "http://localhost/comment/Shemale?_method=PATCH" method = "post">
+		<input type="text" placeholder="something" name="something">
+        <button>send PATCH</button>
+    </form>
+</body>
+</html>
+
+
+

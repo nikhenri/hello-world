@@ -1,0 +1,1 @@
+console.log(`I love ${process.argv[2]}`)

@@ -1,0 +1,61 @@
+<% layout('layout/boilerplate') %>
+<div class="row">
+    
+    <div class="col-6">
+        <div class="card" >
+            <img src=<%= camp.img %>>
+            <div class="card-body">
+                <h5 class="card-title"><%= camp.title %></h5>
+                <p class="card-text"><%= camp.description %></p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item text-muted"></li>
+                <li class="list-group-item text-muted"><%= camp.location %></li>
+                <li class="list-group-item"><%= camp.price %>$</li>
+            </ul>
+            <div class="card-body">
+                <a href="/campgrounds/<%= camp._id%>/edit" class="btn btn-warning">Edit</a>
+                <a href="/campgrounds" class="btn btn-info">Back</a>
+            </div>
+            
+        </div>
+    </div>
+    <div class="col-6">
+        <h5>Reviews</h5>
+        <form action="/campgrounds/<%= camp._id%>/reviews" class="validated-form" method="POST" novalidate>
+            <div class="mb-3">
+                <label class="form-label" for="">Rating</label>
+                <input class="form-range" name="review[rating]" type="range" min=1 max=5 id="">
+            </div>
+            <div class="mb-3">
+                <!-- <label class="form-label" for="">Review</label> -->
+                <textarea class="form-control" name="review[body]" id="" cols="30" rows="3" required></textarea>
+            </div>
+            <button class="btn btn-success mb-3">Submit</button>
+        </form>
+        <% for(let review of camp.reviews) { %> 
+            <div class="card mb-3 ">
+                <div class="card-body">
+                    <h5 class="card-title">Rating: <%= review.rating  %></h5>
+                    <p class="card-text">Review: <%= review.body  %></p>
+                    <form action="/campgrounds/<%= camp._id%>/reviews/<%= review._id%>?_method=DELETE" method="POST" >
+                        <button class="btn btn-sm btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        <% } %> 
+    </div>            
+</div>
+
+
+<!--   
+
+<h1><%= camp.title %></h1>
+<h2><%= camp.location %></h2>
+<img src=<%= camp.img %>>
+<p><%= camp.description %></p>
+<a href="/campgrounds/<%= camp._id%>/edit">edit</a>
+<br>
+<a href="/campgrounds">Back</a>
+
+     -->

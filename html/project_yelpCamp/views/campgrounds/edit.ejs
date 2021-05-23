@@ -1,0 +1,81 @@
+
+<% layout('layout/boilerplate') %>
+<div class="row">
+    
+    <div class="col-6 offset-3">
+        <h1 class="text-center">Edit Campground</h1>
+        <form action="/campgrounds/<%= camp._id %>?_method=PUT" method="POST" novalidate class="validated-form">
+            <div class="mb-3">
+                <label class="form-label" for="">Title</label>
+                <input class="form-control" type="text" id="title" name="campForm[title]" value="<%= camp.title %>" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="">Localtion</label>
+                <input class="form-control" type="text" id="location" name="campForm[location]" value="<%= camp.location %>" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="">Image</label>
+                <input class="form-control" type="text" id="location" name="campForm[img]" value="<%= camp.img %>" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="">Description</label>
+                <textarea class="form-control" type="text" id="description" name="campForm[description]" required><%= camp.description %></textarea>
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">$</div>
+                </div>
+                <input type="text" class="form-control" id="price" placeholder="price" name="campForm[price]" value="<%= camp.price %>" required >
+            </div>
+
+            <div class="mb-1">
+                <button class="btn-info">Edit</button>
+            </div>
+            
+        </form>
+        <form action="/campgrounds/<%= camp._id %>?_method=DELETE" method="POST">
+            <button class="btn-danger">Delete</button>
+        </form>
+        <a href="/campgrounds">Back</a>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- <% layout('layout/boilerplate') %>
+
+<h1><%= camp.title %></h1>
+<h2><%= camp.location %></h2>
+<img src=<%= camp.img %>> -->
+<!-- <br>
+<a href="/campgrounds/<%= camp._id%>/edit">edit</a>
+<br> -->
+<!-- <p></p>
+<form action="/campgrounds/<%= camp._id %>?_method=PUT" method="POST">
+    <div>
+        <label for="">Title</label>
+        <input type="text" id="title" name="campForm[title]" value="<%= camp.title %>">
+    </div>
+    <div>
+        <label for="">Localtion</label>
+        <input type="text" id="location" name="campForm[location]" value="<%= camp.location %>">
+    </div>
+
+    <div>
+        <label for="">Description</label>
+        <br>
+        <textarea cols="100" rows="10" id="description" name="campForm[description]"><%= camp.description %></textarea>
+    </div>
+
+    <button>Edit</button>
+</form>
+<form action="/campgrounds/<%= camp._id %>?_method=DELETE" method="POST">
+    <button>Delete</button>
+</form>
+<a href="/campgrounds">Back</a> -->
+
+
+    
