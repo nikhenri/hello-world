@@ -1,7 +1,12 @@
 class woof {
-    constructor(name) { console.log(`constructor ${name}`) }
-    // console.log("caca")
-    sayHi() { console.log("Fuck oiff") }
+    constructor(name) { 
+      this.name = name
+      console.log(`constructor '${name}'`) 
+    }
+
+    sayHi() { 
+      console.log(`Fuck off '${this.name}'`)
+    }
   }
 
   module.exports = woof

@@ -1,25 +1,49 @@
-const methodOverride = require('method-override')
 const express = require('express')
-const ejsMate = require('ejs-mate')
-const Review = require('./models/review')
+const methodOverride = require('method-override') // allow to use delete, put route instead of only post or get
+const ejsMate = require('ejs-mate') //render
+const mongoose = require('mongoose') //moosoe db
+const session = require('express-session')
+const flash = require('connect-flash')
+
+const routesCampgrounds = require('./routes/campgrounds')
+const routesReview = require('./routes/review')
+
+//const catchAsync = require('./utils/catchAsync')
+//const ExpressErr = require('./utils/ExpressErr')
+
 const app = express();
-app.use(express.urlencoded({extended:true}))
 app.use(methodOverride('_method'))
 app.engine('ejs', ejsMate) //allow to define layout
-const mongoose = require('mongoose')
-const Campground = require('./models/campground')
-const catchAsync = require('./utils/catchAsync')
-const ExpressErr = require('./utils/ExpressErr')
-// obj
+app.use(express.urlencoded({extended:true})) // parse JSON
+app.set('view engine', 'ejs')
+const sessionConfig = {
+    secret: 'thisIsASecret',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        expires: Date.now() + 1000*60*60*24*7,
+        maxAge: 1000*60*60*24*7
+    }
+
+}
+app.use(session(sessionConfig)) //create cookie sid
+
+app.use(flash())
+app.use((req, res, next) => { //we save to local variable on every request
+    res.locals.suckcess = req.flash('suckcess')
+    next()
+})
+// obj test-----------
 const test = require('./test')
 const t = new test('suck it')
 t.sayHi()
-
+// --------
 
 mongoose.connect('mongodb://localhost:27017/yelp-camp',  {
     useNewUrlParser: true, 
     useCreateIndex: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify: false
 })
 
 const db = mongoose.connection // alias
@@ -28,47 +52,17 @@ db.once('open', () => {
     console.log('Database connected')
 })
 
+// this allow to access the file from anywhere in the code
+// also the file under public are route automticly
+// ex: http://localhost/hello.js
+app.use(express.static('public'))
 
-app.set('view engine', 'ejs')
-
+app.use('/campgrounds', routesCampgrounds)
+app.use('/campgrounds/:id/reviews', routesReview)
 app.get('/', (req, res) => {
     res.render('home')
 })
 
-app.get('/campgrounds', catchAsync(async (req, res) => {
-    const camp = await Campground.find({})
-    res.render('campgrounds/index', {camp})
-}))
-
-app.get('/campgrounds/new', async (req, res) => {
-    res.render('campgrounds/new')
-})
-
-// add a fct wrapper for 'async' named 'catchAsync'
-app.post('/campgrounds', catchAsync(async (req, res, next) => {
-    const camp = new Campground(req.body.campForm)
-    await camp.save();
-    // res.send(req.body)
-    res.redirect(`/campgrounds/${camp._id}`)
-
-}))
-
-app.post('/campgrounds/:id/reviews', catchAsync(async (req, res, next) => {
-    // res.send("asshole")
-    const camp = await Campground.findById(req.params.id)
-    const rev = new Review(req.body.review)
-    camp.reviews.push(rev);
-    await rev.save();
-    await camp.save();
-    res.redirect(`/campgrounds/${camp._id}`)
-}))
-
-app.delete('/campgrounds/:id/reviews/:reviewId', catchAsync(async (req, res) => {
-    const { id, reviewId } = req.params // take the id in the path
-    await Review.findByIdAndDelete(reviewId)
-    await Campground.findByIdAndUpdate(id, {$pull: {reviews: reviewId}}, {useFindAndModify: false})
-    res.redirect(`/campgrounds/${id}`)
-}))
 // app.post('/campgrounds', async (req, res, next) => {
 //     try {
 //     const camp = new Campground(req.body.campForm)
@@ -79,34 +73,6 @@ app.delete('/campgrounds/:id/reviews/:reviewId', catchAsync(async (req, res) => 
 //         next(e)
 //     }
 // })
-
-
-app.get('/campgrounds/:id', catchAsync(async (req, res) => {
-    const { id } = req.params // take the id in the path
-    const camp = await Campground.findById(id).populate('reviews')
-    //console.log(camp)
-    // console.log(camp)
-    res.render('campgrounds/show', {camp})
-}))
-
-app.get('/campgrounds/:id/edit', catchAsync(async (req, res) => {
-    const { id } = req.params // take the id in the path
-    const camp = await Campground.findById(id)
-    res.render('campgrounds/edit', {camp})
-}))
-
-app.put('/campgrounds/:id', catchAsync(async (req, res) => {
-    //res.send("WOOF")
-    const { id } = req.params // take the id in the path
-    const camp = await Campground.findByIdAndUpdate(id, {...req.body.campForm})
-    res.redirect(`/campgrounds/${camp._id}`)
-}))
-
-app.delete('/campgrounds/:id', catchAsync(async (req, res) => {
-    const { id } = req.params // take the id in the path
-    const camp = await Campground.findByIdAndDelete(id)
-    res.redirect(`/campgrounds`)
-}))
 
 // no route match
 // app.all('*', (req, res, next) => {
@@ -121,7 +87,6 @@ app.delete('/campgrounds/:id', catchAsync(async (req, res) => {
 //     //console.log(JSON.stringify(err))
 //     res.render('error', {statusCode, message, stack})
 // })
-
 
 app.listen(80, () => {
     console.log('Waiting')
